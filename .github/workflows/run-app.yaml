@@ -9,8 +9,8 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: '5.0.301'
+          dotnet-version: '6.0.x'
       - name: Install dependencies
         run: dotnet restore GithubActions.sln
       - name: Build
-        run: msbuild /p:Configuration=Release GithubActions.sln
+        run: dotnet build GithubActions.sln --configuration Release
