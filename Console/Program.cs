@@ -53,7 +53,6 @@ namespace GithubActionsLab
                 {
                     Console.WriteLine(e.Message);
                 }
-
             }
         }
 
@@ -72,22 +71,24 @@ namespace GithubActionsLab
         {
             return double.Parse(x) - double.Parse(y);
         }
+
         public static double Multiply(string x, string y)
         {
             return double.Parse(x) * double.Parse(y);
         }
+
         public static double Divide(string x, string y)
         {
             return double.Parse(x) / double.Parse(y);
         }
 
-        // Implement this method following a similar pattern as above
+        // ✅ Implemented Power method
         public static double Power(string x, string y)
         {
-            throw new NotImplementedException();
+            if (x == null || y == null)
+                throw new ArgumentNullException();
+
+            return Math.Pow(double.Parse(x), double.Parse(y));
         }
     }
-
-
-
 }
