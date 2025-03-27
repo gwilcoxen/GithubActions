@@ -7,7 +7,7 @@ namespace GithubActionsLab
     public class MathTests
     {
         [TestMethod]
-        public void Add_Valid()
+        public void Add_Valid_Wilcoxen()
         {
             Assert.AreEqual(3, Program.Add("1", "2"));
             Assert.AreEqual(5, Program.Add("3", "2"));
@@ -15,7 +15,7 @@ namespace GithubActionsLab
         }
 
         [TestMethod]
-        public void Add_Invalid()
+        public void Add_Invalid_Wilcoxen()
         {
             Assert.ThrowsException<FormatException>(() => Program.Add("1", "a"));
             Assert.ThrowsException<FormatException>(() => Program.Add("a", "1"));
@@ -23,7 +23,7 @@ namespace GithubActionsLab
         }
 
         [TestMethod]
-        public void Add_Null()
+        public void Add_Null_Wilcoxen()
         {
             Assert.ThrowsException<ArgumentNullException>(() => Program.Add("1", null));
             Assert.ThrowsException<ArgumentNullException>(() => Program.Add(null, "1"));
@@ -31,27 +31,27 @@ namespace GithubActionsLab
         }
 
         [TestMethod]
-        public void Power_Valid()
+        public void Subtract_Valid_Wilcoxen()
         {
-            Assert.AreEqual(8, Program.Power("2", "3"));
-            Assert.AreEqual(1, Program.Power("5", "0"));
-            Assert.AreEqual(10000, Program.Power("10", "4"));
+            Assert.AreEqual(2, Program.Subtract("5", "3"));
+            Assert.AreEqual(0, Program.Subtract("2", "2"));
+            Assert.AreEqual(-1, Program.Subtract("4", "5"));
         }
 
         [TestMethod]
-        public void Power_Invalid()
+        public void Multiply_Valid_Wilcoxen()
         {
-            Assert.ThrowsException<FormatException>(() => Program.Power("a", "3"));
-            Assert.ThrowsException<FormatException>(() => Program.Power("2", "b"));
-            Assert.ThrowsException<FormatException>(() => Program.Power("x", "y"));
+            Assert.AreEqual(6, Program.Multiply("2", "3"));
+            Assert.AreEqual(0, Program.Multiply("0", "5"));
+            Assert.AreEqual(-15, Program.Multiply("-3", "5"));
         }
 
         [TestMethod]
-        public void Power_Null()
+        public void Divide_Valid_Wilcoxen()
         {
-            Assert.ThrowsException<ArgumentNullException>(() => Program.Power(null, "3"));
-            Assert.ThrowsException<ArgumentNullException>(() => Program.Power("2", null));
-            Assert.ThrowsException<ArgumentNullException>(() => Program.Power(null, null));
+            Assert.AreEqual(2, Program.Divide("6", "3"));
+            Assert.AreEqual(0.5, Program.Divide("1", "2"));
+            Assert.AreEqual(-4, Program.Divide("-8", "2"));
         }
     }
 }
